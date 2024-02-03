@@ -4,19 +4,22 @@ public class Address {
     private String name;
     private String streetAddress;
     private String city;
-    private String state;
+    private State state;
     private String zipCode;
+
+    private Country country;
 
     public Address(String name,
                    String streetAddress,
                    String city,
-                   String state,
-                   String zipCode) {
+                   State state,
+                   String zipCode, Country country) {
         this.name = name;
         this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
+        this.country = country;
     }
 
     public String getName() {
@@ -31,12 +34,16 @@ public class Address {
         return city;
     }
 
-    public String getState() {
+    public State getState() {
         return state;
     }
 
     public String getZipCode() {
         return zipCode;
+    }
+
+    public Country getCountry() {
+        return country;
     }
 
     @Override
@@ -45,8 +52,9 @@ public class Address {
                 "name='" + name + '\'' +
                 ", streetAddress='" + streetAddress + '\'' +
                 ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
+                ", state=" + state +
                 ", zipCode='" + zipCode + '\'' +
+                ", country=" + country +
                 '}';
     }
 }
