@@ -9,16 +9,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EmployeeManagementService {
- //test
+    //test
     private static Map<String, Employee> EMPLOYEES_DATABASE = new HashMap();
 
-    public static Employee addEmployee(String fName, String lName, Address address, JobDetails jobDetails, MartialStatus martialStatus) {
+    public Employee addEmployee(String fName, String lName, Address address, JobDetails jobDetails, MartialStatus martialStatus) {
         Employee employee = new Employee(fName, lName, address, jobDetails, martialStatus);
         EMPLOYEES_DATABASE.put(employee.getId(), employee);
         return employee;
     }
 
-    public static Employee updateEmployee(String id, String fName, String lName, Address address, JobDetails jobDetails, MartialStatus martialStatus) {
+    public Employee updateEmployee(String id, String fName, String lName, Address address, JobDetails jobDetails, MartialStatus martialStatus) {
         Employee employee = EMPLOYEES_DATABASE.get(id);
         employee.setFirstName(fName);
         employee.setLastName(lName);
@@ -30,9 +30,12 @@ public class EmployeeManagementService {
     }
 
 
-    public static Employee deleteEmployee(String id) {
+    public Employee deleteEmployee(String id) {
         Employee employee = EMPLOYEES_DATABASE.remove(id);
         return employee;
     }
 
+    public Employee findEmployee(String id) {
+        return EMPLOYEES_DATABASE.get(id);
+    }
 }
